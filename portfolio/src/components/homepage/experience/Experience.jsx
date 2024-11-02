@@ -1,4 +1,4 @@
-import { experiences } from "../../../../utils/data/experience";
+// import { experiences } from "../../../../utils/data/experience";
 import { BsPersonWorkspace } from "react-icons/bs";
 import AnimationLottie from "../../helper/animation-lottie";
 import GlowCard from "../../helper/glow-card";
@@ -6,9 +6,9 @@ import experience from "../../../assets/lottie/code.json";
 import section from "../../../assets/section.svg";
 import blur from "../../../assets/blur-23.svg";
 
-function Experience() {
+function Experience({experiences}) {
 	return (
-		<div id="experience" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
+		<section id="experience" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
 			<img src={section} alt="Hero" width={1572} height={795} className="absolute top-0 -z-10" />
 
 			<div className="flex justify-center my-5 lg:py-8">
@@ -29,8 +29,8 @@ function Experience() {
 
 					<div>
 						<div className="flex flex-col gap-6">
-							{experiences.map((experience) => (
-								<GlowCard key={experience.id} identifier={`experience-${experience.id}`}>
+							{experiences.map((experience, index) => (
+								<GlowCard key={index} identifier={`experience-${index}`}>
 									<div className="p-3 relative">
 										<img src={blur} alt="Hero" width={1080} height={200} className="absolute bottom-0 opacity-80" />
 										<div className="flex justify-center">
@@ -52,7 +52,7 @@ function Experience() {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 }
 

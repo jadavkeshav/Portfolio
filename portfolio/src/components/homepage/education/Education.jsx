@@ -1,4 +1,4 @@
-import { educations } from "../../../../utils/data/educations";
+// import { educations } from "../../../../utils/data/educations";
 import { BsPersonWorkspace } from "react-icons/bs";
 import AnimationLottie from "../../helper/animation-lottie";
 import GlowCard from "../../helper/glow-card";
@@ -6,7 +6,7 @@ import lottieFile from '../../../assets/lottie/lotti.json';
 import section from "../../../assets/section.svg";
 import blur from "../../../assets/blur-23.svg";
 
-function Education() {
+function Education({educations}) {
   return (
     <div id="education" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
       <img
@@ -43,8 +43,8 @@ function Education() {
           <div>
             <div className="flex flex-col gap-6">
               {
-                educations.map(education => (
-                  <GlowCard key={education.id} identifier={`education-${education.id}`}>
+                educations.map((education, index) => (
+                  <GlowCard key={index} identifier={`education-${index}`}>
                     <div className="p-3 relative text-white">
                       <img
                         src={blur}
