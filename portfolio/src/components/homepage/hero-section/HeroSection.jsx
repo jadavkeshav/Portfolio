@@ -55,7 +55,7 @@ function HeroSection() {
 					<div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600 opacity-70" style={{ zIndex: -1 }}></div>
 
 					<div className="overflow-hidden px-2 h-full lg:px-4 py-2 lg:py-4 flex items-center justify-center relative">
-						<img src="../../../../public/rem2.png" className="max-w-full max-h-full rounded-full object-cover" alt="" />
+						<img src="/rem2.png" className="max-w-full max-h-full rounded-full object-cover" alt="" />
 					</div>
 				</div>
 			</div>
