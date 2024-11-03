@@ -46,11 +46,38 @@ export default function App() {
 			try {
 				const data = await client.fetch(query);
 
-				setCertificates(data.filter((doc) => doc._type === "certificate"));
-				setExperiences(data.filter((doc) => doc._type === "experience"));
-				setSkills(data.filter((doc) => doc._type === "skills"));
-				setProjects(data.filter((doc) => doc._type === "project"));
-				setEducations(data.filter((doc) => doc._type === "education"));
+				// setCertificates(data.filter((doc) => doc._type === "certificate"));
+				// setExperiences(data.filter((doc) => doc._type === "experience"));
+				// setSkills(data.filter((doc) => doc._type === "skills"));
+				// setProjects(data.filter((doc) => doc._type === "project"));
+				// setEducations(data.filter((doc) => doc._type === "education"));
+				const sortedCertificates = data
+					.filter((doc) => doc._type === "certificate")
+					.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
+				setCertificates(sortedCertificates);
+
+				const sortedExperiences = data
+					.filter((doc) => doc._type === "experience")
+					.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
+				setExperiences(sortedExperiences);
+
+				const sortedSkills = data
+					.filter((doc) => doc._type === "skills")
+					.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
+				setSkills(sortedSkills);
+
+				const sortedProjects = data
+					.filter((doc) => doc._type === "project")
+					.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
+				setProjects(sortedProjects);
+				
+				const sortedEducations = data
+					.filter((doc) => doc._type === "education")
+					.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
+				setEducations(sortedEducations);
+
+
+
 				setSocialLinks(data.filter((doc) => doc._type === "SocialLinks"));
 			} catch (error) {
 				console.error("Error fetching documents:", error);

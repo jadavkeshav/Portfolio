@@ -28,8 +28,14 @@ export const certificateType = defineType({
       type: 'image',
       title: 'Certificate Image',
       options: {
-        hotspot: true, // Enables focal point selection for the image
+        hotspot: true, 
       },
+    }),
+    defineField({
+      name: 'url',
+      type: 'url',
+      title: 'Verify URL',
+      validation: Rule => Rule.required(),
     }),
   ],
 });

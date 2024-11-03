@@ -4,8 +4,12 @@ import section from "../../../assets/section.svg";
 import blur from "../../../assets/blur-23.svg";
 import { urlFor } from "../../../client";
 import { formatDate } from "../../../../utils/formatDate";
+import { AiOutlineFileDone } from "react-icons/ai";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 function Certificates({ data }) {
+
+	console.log(data)
 	return (
 		<div id="certificates" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
 			<img
@@ -44,11 +48,12 @@ function Certificates({ data }) {
 									className="absolute bottom-0 opacity-80"
 								/>
 								<div className="flex justify-center mb-4">
-									<img
-										src={urlFor(certificate.image.asset._ref)}
+								<AiOutlineFileDone className="text-5xl text-[#16f2b3] mb-3" />
+									{/* <img
+										src={urlFor(certificate?.image?.asset?._ref)}
 										alt={`${certificate.title} Certificate`}
 										className="rounded-lg shadow-lg w-full h-50 object-cover"
-									/>
+									/> */}
 								</div>
 								<div className="flex justify-center">
 									<p className="text-xs sm:text-sm text-[#16f2b3]">
@@ -67,7 +72,7 @@ function Certificates({ data }) {
 										rel="noopener noreferrer"
 										className="bg-gradient-to-r from-pink-500 to-violet-500 text-white font-semibold py-2 px-4 rounded-md transition-all duration-300 transform hover:scale-105 shadow-lg"
 									>
-										Verify Certificate
+										<FaExternalLinkAlt />
 									</a>
 								</div>
 							</div>
