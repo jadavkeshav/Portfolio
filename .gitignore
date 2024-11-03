@@ -1,5 +1,7 @@
 Portfolio# .gitignore
 
+backend
+
 # Node modules in both portfolio and backend
 portfolio/node_modules/
 backend/node_modules/
