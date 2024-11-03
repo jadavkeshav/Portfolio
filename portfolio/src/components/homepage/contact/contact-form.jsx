@@ -26,53 +26,42 @@ function ContactForm() {
   };
 
   const handleSendMail = async (e) => {
-    e.preventDefault();
+		e.preventDefault();
 
-    if (!userInput.email || !userInput.message || !userInput.name) {
-      setError({ ...error, required: true });
-      return;
-    } else if (error.email) {
-      return;
-    } else {
-      setError({ ...error, required: false });
-    }
+		if (!userInput.email || !userInput.message || !userInput.name) {
+			setError({ ...error, required: true });
+			return;
+		} else if (error.email) {
+			return;
+		} else {
+			setError({ ...error, required: false });
+		}
 
-    const data = {
-      service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      user_id: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      template_params: {
-        user_name: userInput.name,
-        user_email: userInput.email,
-        message: userInput.message,
-      },
-    };
+		const templateParams = {
+			from_name: userInput.name,
+			from_email: userInput.email,
+			to_name: "Keshav", // Change this to your name or the recipient's name
+			message: userInput.message,
+		};
 
-    try {
-      setIsLoading(true);
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        toast.success("Message sent successfully!");
-        setUserInput({ name: "", email: "", message: "" });
-      } else {
-        const errorData = await response.json();
-        toast.error("Failed to send message: " + errorData.message);
-      }
-    } catch (error) {
-      toast.error("Oops... Something went wrong.");
-      console.error(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
+		setIsLoading(true);
+		try {
+			const response = await emailjs.send(
+				import.meta.env.VITE_EMAILJS_SERVICE_ID, // Your EmailJS service ID
+				import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // Your EmailJS template ID
+				templateParams,
+				import.meta.env.VITE_EMAILJS_PUBLIC_KEY // Your EmailJS public key
+			);
+			console.log("SUCCESS!", response.status, response.text);
+			toast.success("Message sent successfully!");
+			setUserInput({ name: "", email: "", message: "" });
+		} catch (err) {
+			console.error("FAILED...", err);
+			toast.error("Failed to send message: " + err.text);
+		} finally {
+			setIsLoading(false);
+		}
+	};
   return (
     <div>
       <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">Contact with me</p>
