@@ -1,5 +1,6 @@
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import { Analytics } from "@vercel/analytics/react";
 
 import NavBar from "./components/NavBar";
 import ScrollToTop from "./components/helper/scroll-to-top";
@@ -17,20 +18,19 @@ import { client } from "./client";
 import { useLocation } from "react-router-dom";
 
 function ScrollToSection() {
-  const { hash } = useLocation();
+	const { hash } = useLocation();
 
-  useEffect(() => {
-    if (hash) {
-      const target = document.getElementById(hash.replace("#", ""));
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }, [hash]);
+	useEffect(() => {
+		if (hash) {
+			const target = document.getElementById(hash.replace("#", ""));
+			if (target) {
+				target.scrollIntoView({ behavior: "smooth" });
+			}
+		}
+	}, [hash]);
 
-  return null;
+	return null;
 }
-
 
 export default function App() {
 	const [certificates, setCertificates] = useState([]);
@@ -51,32 +51,20 @@ export default function App() {
 				// setSkills(data.filter((doc) => doc._type === "skills"));
 				// setProjects(data.filter((doc) => doc._type === "project"));
 				// setEducations(data.filter((doc) => doc._type === "education"));
-				const sortedCertificates = data
-					.filter((doc) => doc._type === "certificate")
-					.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
+				const sortedCertificates = data.filter((doc) => doc._type === "certificate").sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
 				setCertificates(sortedCertificates);
 
-				const sortedExperiences = data
-					.filter((doc) => doc._type === "experience")
-					.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
+				const sortedExperiences = data.filter((doc) => doc._type === "experience").sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
 				setExperiences(sortedExperiences);
 
-				const sortedSkills = data
-					.filter((doc) => doc._type === "skills")
-					.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
+				const sortedSkills = data.filter((doc) => doc._type === "skills").sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
 				setSkills(sortedSkills);
 
-				const sortedProjects = data
-					.filter((doc) => doc._type === "project")
-					.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
+				const sortedProjects = data.filter((doc) => doc._type === "project").sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
 				setProjects(sortedProjects);
-				
-				const sortedEducations = data
-					.filter((doc) => doc._type === "education")
-					.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
+
+				const sortedEducations = data.filter((doc) => doc._type === "education").sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt));
 				setEducations(sortedEducations);
-
-
 
 				setSocialLinks(data.filter((doc) => doc._type === "SocialLinks"));
 			} catch (error) {
@@ -90,18 +78,19 @@ export default function App() {
 	return (
 		<>
 			<main className="min-h-screen relative mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] text-white">
-			<ToastContainer />
+				<ToastContainer />
 				<NavBar />
 				<HeroSection />
 				<AboutSection />
 				<Experience experiences={experiences} />
-				<Skills skillsData={skills}  />
+				<Skills skillsData={skills} />
 				<Projects projectsData={projects} />
 				<Education educations={educations} />
 				<Certificates data={certificates} />
-				<ContactSection   />
+				<ContactSection />
 				<ScrollToSection />
 				<ScrollToTop />
+				<Analytics />
 			</main>
 			<Footer />
 		</>
