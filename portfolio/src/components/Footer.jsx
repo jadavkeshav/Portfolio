@@ -13,7 +13,7 @@ export default function Footer() {
 						<Link target="_blank" to="https://www.linkedin.com/in/jadav-keshav/" className="text-[#16f2b3]">
 							Jadav Keshav
 						</Link>{" "}
-						2024.
+						2025.
 					</p>
 				</div>
 			</div>
