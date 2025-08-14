@@ -1,5 +1,5 @@
 export const contactsData = {
-    email: 'jadavkeshav2005@gmail.com',
+    email: 'support@jadavkeshav.tech',
     phone: '+91-8019833422',
     address: 'Hyderabad, Telangana, India - 500029 ',
     github: 'https://github.com/jadavkeshav',

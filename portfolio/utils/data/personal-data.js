@@ -3,7 +3,7 @@ export const personalData = {
   profile: '/profile-pic1.jpeg',
   designation: "Full Stack Developer",
   description: "I am Jadav Keshav, a Computer Science student at KMIT, Hyderabad, deeply passionate about software development. Proficient in MERN stack and Java, I thrive in crafting robust solutions. With strong problem-solving skills and a collaborative mindset, I am committed to delivering high-quality software. Eager to learn and grow, I seek opportunities to expand my expertise and make meaningful contributions to the tech industry as a Full Stack Developer.",
-  email: 'jadavkeshav2005@gmail.com',
+  email: 'support@jadavkeshav.tech',
   phone: '+91-8019833422',
   address: 'Hyderabad, Telangana, India - 500029 ',
   github: 'https://github.com/jadavkeshav',
