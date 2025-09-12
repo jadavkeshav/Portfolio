@@ -9,7 +9,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 function Certificates({ data }) {
 
-	console.log(data)
+	//console.log(data)
 	return (
 		<div id="certificates" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
 			<img

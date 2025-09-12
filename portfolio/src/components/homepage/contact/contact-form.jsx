@@ -52,7 +52,7 @@ function ContactForm() {
 				templateParams,
 				import.meta.env.VITE_EMAILJS_PUBLIC_KEY // Your EmailJS public key
 			);
-			console.log("SUCCESS!", response.status, response.text);
+			//console.log("SUCCESS!", response.status, response.text);
 			toast.success("Message sent successfully!");
 			setUserInput({ name: "", email: "", message: "" });
 		} catch (err) {
